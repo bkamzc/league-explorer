@@ -19,8 +19,9 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   projects: [
-    { name: 'desktop-chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'mobile-chromium', use: { ...devices['Pixel 7'] } },
+    // Layout-specific tests are tagged; untagged tests run in both projects.
+    { name: 'desktop-chromium', use: { ...devices['Desktop Chrome'] }, grepInvert: /@mobile/ },
+    { name: 'mobile-chromium', use: { ...devices['Pixel 7'] }, grepInvert: /@desktop/ },
   ],
   // Test the production build (CSP included), not the dev server.
   webServer: {

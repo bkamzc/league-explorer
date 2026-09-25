@@ -178,6 +178,12 @@ useIntersectionObserver(
   animation: row-in var(--motion-duration-md) var(--motion-ease-enter) both;
   animation-delay: calc(var(--i, 12) * var(--motion-stagger));
 }
+/* Reduced motion: the first-load reveal is decoration, so rows simply appear. */
+@media (prefers-reduced-motion: reduce) {
+  .stagger li {
+    animation: none;
+  }
+}
 @keyframes row-in {
   from {
     opacity: 0;

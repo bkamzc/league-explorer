@@ -1,0 +1,211 @@
+{
+  "_meta": {
+    "source": "Real TheSportsDB v1 responses captured 2026-09-25 (free key 3).",
+    "allLeagues.free": "Exact all_leagues.php response that day: 5 leagues, no strLeagueAlternate.",
+    "allLeagues.withAlternates": "Real records from a 2024 free response (Wayback), which still had strLeagueAlternate.",
+    "allLeagues.edgeCases": "Real records from the 2021 full response: null alternate, CR/LF in a name, RTL/CJK aliases with a trailing comma, a duplicate short name across sports, 'Motorsports' spelling.",
+    "seasonBadges": "Exact search_all_seasons.php?badge=1&id=<id> responses."
+  },
+  "allLeagues": {
+    "free": {
+      "leagues": [
+        {
+          "idLeague": "4328",
+          "strLeague": "English Premier League",
+          "strSport": "Soccer"
+        },
+        {
+          "idLeague": "4329",
+          "strLeague": "English League Championship",
+          "strSport": "Soccer"
+        },
+        {
+          "idLeague": "4330",
+          "strLeague": "Scottish Premier League",
+          "strSport": "Soccer"
+        },
+        {
+          "idLeague": "4331",
+          "strLeague": "German Bundesliga",
+          "strSport": "Soccer"
+        },
+        {
+          "idLeague": "4332",
+          "strLeague": "Italian Serie A",
+          "strSport": "Soccer"
+        }
+      ]
+    },
+    "withAlternates": {
+      "leagues": [
+        {
+          "idLeague": "4328",
+          "strLeague": "English Premier League",
+          "strSport": "Soccer",
+          "strLeagueAlternate": "Premier League, EPL"
+        },
+        {
+          "idLeague": "4336",
+          "strLeague": "Greek Superleague Greece",
+          "strSport": "Soccer",
+          "strLeagueAlternate": ""
+        },
+        {
+          "idLeague": "4370",
+          "strLeague": "Formula 1",
+          "strSport": "Motorsport",
+          "strLeagueAlternate": "F1, Formula One, Formula1, Formula 1, Formula-1"
+        },
+        {
+          "idLeague": "4387",
+          "strLeague": "NBA",
+          "strSport": "Basketball",
+          "strLeagueAlternate": "National Basketball Association"
+        },
+        {
+          "idLeague": "4391",
+          "strLeague": "NFL",
+          "strSport": "American Football",
+          "strLeagueAlternate": "NFL"
+        }
+      ]
+    },
+    "edgeCases": {
+      "leagues": [
+        {
+          "idLeague": "4583",
+          "strLeague": "French Ligue A Womens Volleyball",
+          "strSport": "Volleyball",
+          "strLeagueAlternate": null
+        },
+        {
+          "idLeague": "4738",
+          "strLeague": "American \r\nAHL",
+          "strSport": "Ice Hockey",
+          "strLeagueAlternate": "American Hockey League"
+        },
+        {
+          "idLeague": "4474",
+          "strLeague": "Israeli Basketball Premier League",
+          "strSport": "Basketball",
+          "strLeagueAlternate": "Ligat HaAl, ליגת העל‎"
+        },
+        {
+          "idLeague": "4866",
+          "strLeague": "AFC Asian Cup",
+          "strSport": "Soccer",
+          "strLeagueAlternate": "亚足联亚洲杯, Piala Asia AFC, एएफसी एशियाई कप, اے ایف سی ایشیائی کپ, AFC 아시안컵, كأس آسيا, جام ملت‌های آسیا, Азийн хөлбөмбөгийн аварга шалгаруулах тэмцээн, এএফসি এশিয়ান কাপ, Cúp bóng đá châu Á, AFCアジアカップ, "
+        },
+        {
+          "idLeague": "4413",
+          "strLeague": "WEC",
+          "strSport": "Motorsport",
+          "strLeagueAlternate": "FIA World Endurance Championship"
+        },
+        {
+          "idLeague": "4884",
+          "strLeague": "WEC",
+          "strSport": "Fighting",
+          "strLeagueAlternate": "World Extreme Cagefighting"
+        },
+        {
+          "idLeague": "4835",
+          "strLeague": "_No League Motorsports",
+          "strSport": "Motorsports",
+          "strLeagueAlternate": ""
+        }
+      ]
+    }
+  },
+  "seasonBadges": {
+    "4328_allBadges": {
+      "seasons": [
+        {
+          "strSeason": "1992-1993",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/02egea1661959225.png"
+        },
+        {
+          "strSeason": "1993-1994",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/d9hqy61661959233.png"
+        },
+        {
+          "strSeason": "1994-1995",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/doefe31661959239.png"
+        },
+        {
+          "strSeason": "1995-1996",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/8h3l7z1661959246.png"
+        },
+        {
+          "strSeason": "1996-1997",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/1eaj5e1661959269.png"
+        }
+      ]
+    },
+    "4329_allNullBadges": {
+      "seasons": [
+        {
+          "strSeason": "1892-1893",
+          "strBadge": null
+        },
+        {
+          "strSeason": "1893-1894",
+          "strBadge": null
+        },
+        {
+          "strSeason": "1894-1895",
+          "strBadge": null
+        },
+        {
+          "strSeason": "1895-1896",
+          "strBadge": null
+        },
+        {
+          "strSeason": "1896-1897",
+          "strBadge": null
+        }
+      ]
+    },
+    "4424_mixedNullFirst": {
+      "seasons": [
+        {
+          "strSeason": "1967",
+          "strBadge": null
+        },
+        {
+          "strSeason": "1976",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/optfoi1708103503.png"
+        },
+        {
+          "strSeason": "1978",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/bp4xer1707649585.png"
+        },
+        {
+          "strSeason": "1981",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/eyk8631707649495.png"
+        },
+        {
+          "strSeason": "1986",
+          "strBadge": "https://r2.thesportsdb.com/images/media/league/badgearchive/ur7d6v1707649472.png"
+        }
+      ]
+    },
+    "4515_singleNull": {
+      "seasons": [
+        {
+          "strSeason": "2025",
+          "strBadge": null
+        }
+      ]
+    },
+    "4975_noSeasons": {
+      "seasons": null
+    },
+    "999999_unknownId": {
+      "seasons": null
+    },
+    "abc_invalidId": {
+      "seasons": "Invalid League ID passed"
+    }
+  }
+}
