@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>League Explorer · Sports leagues</title>
+    <meta name="description" content="Browse sports leagues, filter by name or sport, and view season badges. Data from TheSportsDB." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#E41827" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://www.thesportsdb.com" crossorigin />
+    <link rel="preconnect" href="https://r2.thesportsdb.com" />
+    <!-- Sets the theme before first paint to avoid a flash. External file so the CSP needs no 'unsafe-inline'. -->
+    <script src="/theme-init.js"></script>
   </head>
   <body>
     <div id="app"></div>
+    <noscript>League Explorer needs JavaScript to load league data.</noscript>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

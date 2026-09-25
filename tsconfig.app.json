@@ -3,6 +3,9 @@
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
+    // Array.prototype.findLast etc. Vite 8's default browser targets all support ES2023.
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+
     // Extra safety for array and object lookups, but may have false positives.
     "noUncheckedIndexedAccess": true,
 

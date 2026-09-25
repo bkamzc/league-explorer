@@ -1,0 +1,192 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens. Light is the default; dark reuses SportyBet mobile's neutrals.
+ * Contrast (WCAG 2.2): muted text 5.91:1 light / 6.55:1 dark; input borders ≥ 3:1;
+ * white on --brand 4.71:1; white on light --accent 5.14:1.
+ */
+:root {
+  color-scheme: light;
+  --brand: #e41827;
+  --brand-ink: #ffffff;
+  --brand-text: #c8101e;
+  --bg: #eaecef;
+  --surface: #ffffff;
+  --surface-2: #f7f7f7;
+  --ink-strong: #1b1e25;
+  --ink: #353a45;
+  --muted: #5f6472;
+  --line: #dcdee5;
+  --line-strong: #858a97;
+  --accent: #0b7f2e;
+  --accent-ink: #ffffff;
+  --accent-subtle: #eaf7ee;
+  --mark: #ffe08a;
+  --danger: #b42318;
+  --danger-subtle: #fdecea;
+  --skeleton: #e4e6eb;
+  --focus: #1b1e25;
+  --scrim: rgb(10 12 16 / 0.48);
+  --plate-light: radial-gradient(circle at 50% 42%, #ffffff 0 34%, #e4e6eb 100%);
+  --plate-dark: radial-gradient(circle at 50% 42%, #3e4451 0 30%, #15181e 100%);
+
+  /* Motion tokens (Material 3 easing, Carbon-style durations) */
+  --motion-duration-xs: 100ms;
+  --motion-duration-sm: 150ms;
+  --motion-duration-md: 200ms;
+  --motion-duration-lg: 300ms;
+  --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-ease-enter: cubic-bezier(0, 0, 0, 1);
+  --motion-ease-exit: cubic-bezier(0.3, 0, 1, 1);
+  --motion-ease-emphasized-enter: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --motion-distance-md: 8px;
+  --motion-scale-press: 0.98;
+  --motion-scale-pop: 0.96;
+  --motion-stagger: 30ms;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --brand-text: #ff5a64;
+  --bg: #1b1e25;
+  --surface: #252932;
+  --surface-2: #2d323e;
+  --ink-strong: #f2f3f5;
+  --ink: #e1e4e9;
+  --muted: #a9aeb9;
+  --line: #353a45;
+  --line-strong: #7a8090;
+  --accent: #32ce62;
+  --accent-ink: #1b1e25;
+  --accent-subtle: rgb(50 206 98 / 0.12);
+  --mark: #5c4a12;
+  --danger: #ff8a8a;
+  --danger-subtle: rgb(255 138 138 / 0.1);
+  --skeleton: #2d323e;
+  --focus: #f2f3f5;
+  --scrim: rgb(0 0 0 / 0.6);
+}
+
+/* Before the theme script runs (or if storage is blocked), follow the OS. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --brand-text: #ff5a64;
+    --bg: #1b1e25;
+    --surface: #252932;
+    --surface-2: #2d323e;
+    --ink-strong: #f2f3f5;
+    --ink: #e1e4e9;
+    --muted: #a9aeb9;
+    --line: #353a45;
+    --line-strong: #7a8090;
+    --accent: #32ce62;
+    --accent-ink: #1b1e25;
+    --accent-subtle: rgb(50 206 98 / 0.12);
+    --mark: #5c4a12;
+    --danger: #ff8a8a;
+    --danger-subtle: rgb(255 138 138 / 0.1);
+    --skeleton: #2d323e;
+    --focus: #f2f3f5;
+    --scrim: rgb(0 0 0 / 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-distance-md: 0px;
+    --motion-scale-press: 1;
+    --motion-scale-pop: 1;
+    --motion-stagger: 0ms;
+  }
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-text: var(--brand-text);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink-strong: var(--ink-strong);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-mark: var(--mark);
+  --color-danger: var(--danger);
+  --color-danger-subtle: var(--danger-subtle);
+  --color-skeleton: var(--skeleton);
+  --color-focus: var(--focus);
+  --font-sans: Roboto, Inter, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --ease-standard: var(--motion-ease-standard);
+  --ease-enter: var(--motion-ease-enter);
+  --ease-exit: var(--motion-ease-exit);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Keeps the sticky filter bar from covering the focused row (WCAG 2.4.11). */
+    scroll-padding-top: calc(var(--filters-h, 0px) + 48px);
+  }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  mark {
+    background: var(--mark);
+    color: inherit;
+    border-radius: 2px;
+  }
+  button,
+  select,
+  [role='button'] {
+    cursor: pointer;
+  }
+  /* Turned on for one frame while the theme switches, so hundreds of rows don't animate their colours. */
+  .theme-switching *,
+  .theme-switching *::before,
+  .theme-switching *::after {
+    transition: none !important;
+  }
+}
+
+@layer components {
+  .skeleton {
+    background: var(--skeleton);
+    position: relative;
+    overflow: hidden;
+  }
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.35), transparent);
+    transform: translateX(-100%);
+    /* Only shimmer if loading takes a while; quick loads just show the static shape. */
+    animation: shimmer 1.2s 200ms infinite;
+  }
+  :root[data-theme='dark'] .skeleton::after {
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.06), transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton::after {
+      animation: none;
+    }
+  }
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}

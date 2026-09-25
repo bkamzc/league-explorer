@@ -6,15 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "test:unit": "vitest",
-    "test:e2e": "playwright test",
     "build-only": "vite build",
+    "preview": "vite preview",
     "type-check": "vue-tsc --build",
-    "lint": "run-s \"lint:*\"",
+    "lint": "run-s \"lint:oxlint\" \"lint:eslint\"",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "oxfmt src/"
+    "lint:ci": "oxlint . --deny-warnings && eslint . --max-warnings=0",
+    "format": "oxfmt src/ e2e/",
+    "format:check": "oxfmt --check src/ e2e/",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:install": "playwright install --with-deps chromium",
+    "check": "run-s format:check lint:ci type-check test build-only"
   },
   "dependencies": {
     "@pinia/colada": "^1.4.6",
@@ -62,5 +68,6 @@
   },
   "engines": {
     "node": "^22.18.0 || >=24.12.0"
-  }
+  },
+  "description": "Sports league explorer for the Sporty Group frontend take-home (Vue 3 + TheSportsDB)."
 }
