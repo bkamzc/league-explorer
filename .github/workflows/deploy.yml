@@ -24,8 +24,12 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: npm run type-check
       # Project pages are served from /<repo>/; the router and assets follow Vite's base.
-      - run: npm run build -- --base=/${{ github.event.repository.name }}/
+      # Call build-only directly: `npm run build` (run-p) doesn't forward --base to Vite.
+      - run: npm run build-only -- --base=/${{ github.event.repository.name }}/
+      - name: Check asset paths include the base
+        run: grep -q 'src="/${{ github.event.repository.name }}/assets/' dist/index.html
       # Unknown paths fall back to the app, which redirects them to the list.
       - run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0

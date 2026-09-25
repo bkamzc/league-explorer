@@ -2,7 +2,7 @@
 
 A Vue 3 single-page app for the Sporty Group frontend take-home. It lists sports leagues from [TheSportsDB](https://www.thesportsdb.com), filters them by name and sport, and shows a season badge when you open a league. Every API response is cached for the session.
 
-**Live demo:** _added after the first GitHub Pages deploy_
+**Live demo:** https://bkamzc.github.io/league-explorer/ · **Repo:** https://github.com/bkamzc/league-explorer
 
 | | |
 |---|---|
